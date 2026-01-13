@@ -1,6 +1,20 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
 
 @theme{
-    --color-primary: red;
+    --color-primary:#36454F ;
+     --font-montserrat: "Montserrat"; 
+}
+
+.main-container{
+    @apply mx-auto max-w-7xl h-screen ;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; 
+}
+
+.shadow-bottom {
+  box-shadow: 0 4px 6px -4px rgba(0, 0, 0, 0.3);
 }
