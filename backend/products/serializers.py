@@ -9,15 +9,15 @@ class CategorySerializer(serializers.ModelSerializer):
 class ProductVariantSerializer(serializers.ModelSerializer):
     class Meta:
         model = ProductVariant
-        fields = ['id', 'size', 'color', 'stock']
+        fields = ['size', 'color', 'stock', 'price']
 
 class ProductSerializer(serializers.ModelSerializer):
-    variants = ProductVariantSerializer(many=True)
+    variants = ProductVariantSerializer(many=True , read_only=True)
     category_name = serializers.CharField(source='category.name', read_only=True)
 
     class Meta:
         model = Product
-        fields = ['id', 'name', 'description', 'price', 'category', 'category_name', 'variants', 'created_at']
+        fields = ['id', 'name', 'description', 'category', 'category_name', 'variants', 'created_at']
 
     def create(self, validated_data):
         variants_data = validated_data.pop('variants', [])
