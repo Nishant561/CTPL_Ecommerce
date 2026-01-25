@@ -21,11 +21,16 @@ class LoginView(ObtainAuthToken):
     def post(self, request, *args, **kwargs):
         response = super().post(request, *args, **kwargs)
         token = Token.objects.get(key=response.data['token'])
+        user = token.user
+
         return Response({
             'token': token.key,
-            'user_id': token.user.id,
-            'username': token.user.username
+            'user_id': user.id,
+            'username': user.username,
+            'is_staff': user.is_staff,
+            'is_superuser': user.is_superuser
         })
+
         
 class LogoutView(APIView):
     permission_classes = [IsAuthenticated]

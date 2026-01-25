@@ -6,7 +6,7 @@ class ProductVariantInline(admin.TabularInline):
     extra = 1
 
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ('name', 'category', 'price', 'created_at')
+    list_display = ('name', 'category','created_at')
     list_filter = ('category',)
     search_fields = ('name', 'description')
     inlines = [ProductVariantInline]
