@@ -7,7 +7,10 @@
      --font-montserrat: "Montserrat"; 
 }
 
-.main-container{
+
+@layer utilities{
+
+  .main-container{
     @apply mx-auto max-w-7xl h-screen ;
 }
 
@@ -17,4 +20,14 @@
 
 .shadow-bottom {
   box-shadow: 0 4px 6px -4px rgba(0, 0, 0, 0.3);
+}
+
+.box-shadow:hover{
+  box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.2) ;
+  border-radius: 10px;
+}
+
+
+
+
 }
